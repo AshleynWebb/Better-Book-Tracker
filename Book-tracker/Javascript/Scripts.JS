@@ -31,9 +31,69 @@ const form = document.querySelector('form');
             title.textContent = book.title;
 
             const author = document.createElement('p');
-            author.textContent = 'By ${book.author}';
+            author.textContent = `By ${book.author}`;
 
-            
+            const description = document.createElement('p');
+            description.textContent = book.description;
+            description.classList.add('description');
 
-        })
+            const status = document.createElement('p');
+            status.classList.add('status');
+
+            switch (book.status) {
+                case 'read':
+                status.textContent = 'read';
+                status.style.color = 'white';
+                break;
+                case 'to-read':
+                    status.textContent = 'to read';
+                    status.style.color = 'red'
+                    break;
+                    case 'reading':
+                        status.textContent = 'reading';
+                        status.style.color = 'Navy';
+    break;
+                default:
+                    break;
+        }
+
+        const deleteBtn = document.createElement('button');
+        deleteBtn.classList.add('delete-btn');
+        deleteBtn.textContent = 'Delete';
+        deleteBtn.addEventListener('click', () => {
+            myLibrary.splice(index, 1);
+            localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
+            displayBooks();
+        });
+
+        const editBtn = document.createElement('button');
+        editBtn.classList.add('edit-btn');
+        editBtn.textContent = 'Edit';
+        editBtn.addEventListener('click', () => {
+            titleInput.value = book.title;
+            authorInput.value = book.author;
+            descInput.value = book.description;
+            statusInput.value = book.status;
+
+            // remove current book from myLibrary
+            myLibrary.splice(index, 1);
+            localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
+            displayBooks();
+        });
+
+        bookDiv.append(title, author, description, status, editBtn, deleteBtn);
+        bookList.appendChild(bookDiv);
+    });
+    }
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        addBookToLibrary();
+        form.reset();
+        displayBooks();
+    });
+
+    if (localStorage.getItem('myLibrary')) {
+        myLibrary = JSON.parse(localStorage.getItem('myLibrary'));
+        displayBooks();
     }
