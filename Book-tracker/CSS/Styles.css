@@ -3,3 +3,112 @@ body{
     background-color: #002D04;
     color:  rgb(96, 96, 93);
 }
+
+h1 {
+    display: flex;
+    justify-content: center;
+    padding-top: 25px;
+    padding-bottom: 10px;
+    font-size: 35px;
+}
+h3 {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.2);
+}
+
+form label,
+form input,
+form select,
+form button {
+    margin: 15px 0;
+    font-size: 20px;
+}
+
+form textarea {
+    font-family: inherit;
+    font-size: 20px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.4);
+    resize: vertical;
+}
+
+form label {
+    font-weight: bold;
+}
+
+form input,
+form select {
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.4);
+}
+
+form select {
+    cursor: pointer;
+}
+
+form button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.book {
+    margin: 20px auto;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.2);
+    position: relative;
+    width: 420px;
+    
+}
+
+.book h3 {
+    margin: 0;
+}
+
+.book p {
+    margin: 5px 0;
+    word-wrap: break-word;
+}
+
+.book status {
+    font-style: italic;
+}
+
+.book .delete-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.book .edit-btn {
+    position: absolute;
+    top: 10px;
+    right: 60px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
