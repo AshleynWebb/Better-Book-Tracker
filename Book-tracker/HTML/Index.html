@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/Styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="Title">Better Book Tracker</h1>
+    <H3 id="Welcome">Welcome to Better Books. A better way to keep track of your books for the bibliophile.</H3>
+    
+
+    <form>
+
+     <!-- title  -->
+
+        <label for="Title">
+            Title:
+        </label>
+        <input type="text" id="title" name="Title" required>
+
+     <!-- Author -->
+
+        <label for="Author">
+            Author:
+        </label>
+        <input type="text" id="Author" name="Author" required>
+
+        <!-- description -->
+
+        <label for="description">Description:</label>
+        <textarea name="description" id="description" required></textarea>
+
+        <!-- status -->
+
+        <label for="status">Status:</label>
+            <select name="status" id="status" required>
+                <option value="" disabled selected> Select book status</option>
+                <option value="Read">I have read it.</option>
+                <option value="Want to read">I want to read it.</option>
+                <option value="Currently reading">I am Currently reading it.</option>
+            </select>
+        
+            <button type="submit">Add Book selction</button>
+
+    </form>
+  
+    
+</body>
+<script src="/Javascript/Scripts.JS"></script>
+</html>
