@@ -76,6 +76,8 @@ const form = document.querySelector('form');
             statusInput.value = book.status;
 
             // remove current book from myLibrary
+
+            
             myLibrary.splice(index, 1);
             localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
             displayBooks();
