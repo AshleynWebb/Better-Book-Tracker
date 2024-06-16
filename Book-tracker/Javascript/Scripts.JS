@@ -1,18 +1,25 @@
-const form = document.querySelector('form');
+const form = document.getElementById('add_book');
     const titleInput = document.querySelector('#title');
     const authorInput = document.querySelector('#author');
     const descInput = document.querySelector('#description');
-    const statusInput = document.querySelector('#status');
+    const statusInput = document.querySelector("#reading_status");
     const bookList = document.querySelector('#book-list');
 
 
     let myLibrary = [];
 
-    function Book(title, author, description, status){
-        this.title = title;
-        this.author = author;
-        this.description = description;
-        this.status = status;
+    class Book {
+        title;
+        author;
+        description;
+        readingStatus;
+    
+        constructor(title, author, description, readingStatus) { 
+            this.title = title;
+            this.author = author;
+            this.description = description;
+            this.readingStatus = readingStatus;
+        }
     }
 
     function addBookToLibrary() {
