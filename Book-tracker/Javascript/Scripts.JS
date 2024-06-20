@@ -1,3 +1,5 @@
+
+
 const form = document.getElementById('add_book');
     const titleInput = document.querySelector('#title');
     const authorInput = document.querySelector('#author');
@@ -14,11 +16,11 @@ const form = document.getElementById('add_book');
         description;
         readingStatus;
     
-        constructor(title, author, description, readingStatus) { 
+        constructor(title, author, description, reading_status) { 
             this.title = title;
             this.author = author;
             this.description = description;
-            this.readingStatus = readingStatus;
+            this.readingStatus = reading_status;
         }
     }
 
