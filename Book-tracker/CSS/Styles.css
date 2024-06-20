@@ -21,7 +21,15 @@ h3 {
 
 #booksearch {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#search-results {
+    display: flex;
     justify-content: center;
+    flex-direction: column;
 }
 
 #or {
