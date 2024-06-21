@@ -7,7 +7,8 @@
     <title>Better Book Tracker</title>
 </head>
 <body>
-
+    <img src="/Book-tracker/images/bookcase2.jpg" alt="Header Image" id="header-image">
+    
     <h1 id="Title">Better Book Tracker</h1>
     <H3 id="Welcome">Welcome to Better Books. A better way to keep track of your books for the bibliophile.</H3>
     
@@ -31,7 +32,7 @@
         <input type="text" id="authorInput" name="Author" required>
 
         <label for="descriptionInput">Description:</label>
-        <textarea name="description" id="descriptionInput" required></textarea>
+        <textarea name="description" id="descriptionInput"></textarea>
 
         <label for="readingStatusInput">Status:</label>
         <select name="status" id="readingStatusInput" required>
@@ -47,6 +48,7 @@
     <div id="book-list"></div>
 
     <script src="./Javascript/Scripts.JS"></script>
+    
     <script>
         document.getElementById('booksearch').addEventListener('submit', (event) => {
             event.preventDefault();

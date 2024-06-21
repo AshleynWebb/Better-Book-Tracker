@@ -1,6 +1,6 @@
 function getBooks() {
     console.log('getBooks function called');
-    const limit = 8;
+    const limit = 10;
     const searchResults = document.getElementById('search-results');
     searchResults.innerHTML = '';
 
@@ -153,3 +153,37 @@ if (localStorage.getItem('myLibrary')) {
     myLibrary = JSON.parse(localStorage.getItem('myLibrary'));
     displayBooks();
 }
+
+
+
+//CHART 
+function generateBookStatusChart() {
+    const readCount = myLibrary.filter(book => book.readingStatus === 'Read').length;
+    const wantToReadCount = myLibrary.filter(book => book.readingStatus === 'Want to read').length;
+    const currentlyReadingCount = myLibrary.filter(book => book.readingStatus === 'Currently reading').length;
+  
+    const ctx = document.getElementById('bookStatusChart').getContext('2d');
+    const chart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Read', 'Want to Read', 'Currently Reading'],
+        datasets: [{
+          label: 'Book Status',
+          data: [readCount, wantToReadCount, currentlyReadingCount],
+          backgroundColor: ['#4CAF50', '#F44336', '#FF9800'],
+          borderColor: ['#4CAF50', '#F44336', '#FF9800'],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+            precision: 0
+          }
+        }
+      }
+    });
+  }
+
+  
