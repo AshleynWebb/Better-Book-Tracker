@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/Styles.css">
+    <title>Better Book Tracker</title>
+</head>
+<body>
+    <img src="/Book-tracker/images/bookcase2.jpg" alt="Header Image" id="header-image">
+    
+    <h1 id="Title">Better Book Tracker</h1>
+    <H3 id="Welcome">Welcome to Better Books. A better way to keep track of your books for the bibliophile.</H3>
+    
+    <form id="booksearch">
+     <label for="findbook">Search for a book:</label>
+        <input type="text" id="findbook">
+        <button type="submit">Search for a book</button>
+    </form>
+
+    <div id="search-results"></div>
+
+    <div id="book"></div>
+    
+    <h2 id="or">Or Add a book</h2>
+
+    <form id="add_book">
+        <label for="titleInput">Title:</label>
+        <input type="text" id="titleInput" name="Title" required>
+
+        <label for="authorInput">Author:</label>
+        <input type="text" id="authorInput" name="Author" required>
+
+        <label for="descriptionInput">Description:</label>
+        <textarea name="description" id="descriptionInput"></textarea>
+
+        <label for="readingStatusInput">Status:</label>
+        <select name="status" id="readingStatusInput" required>
+            <option value="" disabled selected>Select book status</option>
+            <option value="Read">I have read it.</option>
+            <option value="Want to read">I want to read it.</option>
+            <option value="Currently reading">I am Currently reading it.</option>
+        </select>
+        
+        <button type="submit">Add Book selection</button>
+    </form>
+
+    <div id="book-list"></div>
+
+    <script src="./Javascript/Scripts.JS"></script>
+    
+    <script>
+        document.getElementById('booksearch').addEventListener('submit', (event) => {
+            event.preventDefault();
+            getBooks();
+        });
+    </script>
+</body>
+</html>
