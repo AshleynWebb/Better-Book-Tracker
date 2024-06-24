@@ -63,6 +63,7 @@ class Book {
         this.author = author;
         this.description = description;
         this.readingStatus = readingStatus;
+        this.dateAdded = new Date();
     }
 }
 
@@ -155,35 +156,3 @@ if (localStorage.getItem('myLibrary')) {
 }
 
 
-
-//CHART 
-function generateBookStatusChart() {
-    const readCount = myLibrary.filter(book => book.readingStatus === 'Read').length;
-    const wantToReadCount = myLibrary.filter(book => book.readingStatus === 'Want to read').length;
-    const currentlyReadingCount = myLibrary.filter(book => book.readingStatus === 'Currently reading').length;
-  
-    const ctx = document.getElementById('bookStatusChart').getContext('2d');
-    const chart = new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: ['Read', 'Want to Read', 'Currently Reading'],
-        datasets: [{
-          label: 'Book Status',
-          data: [readCount, wantToReadCount, currentlyReadingCount],
-          backgroundColor: ['#4CAF50', '#F44336', '#FF9800'],
-          borderColor: ['#4CAF50', '#F44336', '#FF9800'],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true,
-            precision: 0
-          }
-        }
-      }
-    });
-  }
-
-  
