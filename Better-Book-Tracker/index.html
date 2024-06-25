@@ -7,7 +7,7 @@
     <title>Better Book Tracker</title>
 </head>
 <body>
-    <img src="/Book-tracker/images/bookcase2.jpg" alt="Header Image" id="header-image">
+    <img src="./images/bookcase2.jpg" alt="Header Image" id="header-image">
     
     <h1 id="Title">Better Book Tracker</h1>
     <H3 id="Welcome">Welcome to Better Books. A better way to keep track of your books for the bibliophile.</H3>
@@ -45,9 +45,13 @@
         <button type="submit">Add Book selection</button>
     </form>
 
-    <div id="book-list"></div>
 
     
+    <div id="book-list"></div>
+
+    <canvas id="bookStatusChart"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="./Javascript/Scripts.JS"></script>
     
     <script>
