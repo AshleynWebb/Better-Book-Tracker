@@ -1,48 +1,69 @@
 function getBooks() {
-    console.log('getBooks function called');
-    const limit = 10;
-    const searchResults = document.getElementById('search-results');
-    searchResults.innerHTML = '';
+  console.log('getBooks function called');
+  const limit = 10;
+  const searchResults = document.getElementById('search-results');
+  searchResults.innerHTML = '';
 
-    fetch(`https://openlibrary.org/search.json?q=${document.getElementById('findbook').value}&limit=${limit}`)
-      .then(response => response.json())
-      .then(data => {
-        console.log('API response:', data);
-        data.docs.forEach(book => {
-          const bookElement = document.createElement('div');
-          bookElement.classList.add('search-result');
+  fetch(`https://openlibrary.org/search.json?q=${document.getElementById('findbook').value}&limit=${limit}`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log('API response:', data);
+      if (data.docs.length === 0) {
+        showErrorMessage('No results found for the given search query.');
+      } else {
+        renderSearchResults(data.docs);
+      }
+    })
+    .catch(error => {
+      console.error('Error fetching books:', error);
+      showErrorMessage('An error occurred while fetching book data. Please try again later.');
+    });
+}
 
-          const title = document.createElement('h3');
-          title.textContent = book.title;
+function renderSearchResults(books) {
+  const searchResults = document.getElementById('search-results');
+  searchResults.innerHTML = '';
 
-          const author = document.createElement('p');
-          author.textContent = `By ${book.author_name ? book.author_name[0] : 'Unknown Author'}`;
+  books.forEach(book => {
+    const bookElement = document.createElement('div');
+    bookElement.classList.add('search-result');
 
-          const coverImage = document.createElement('img');
-          coverImage.src = `https://covers.openlibrary.org/b/isbn/${book.isbn ? book.isbn[0] : ''}-M.jpg`;
-          coverImage.alt = `${book.title} Cover`;
+    const title = document.createElement('h3');
+    title.textContent = book.title || 'Unknown Title';
 
-          const addButton = document.createElement('button');
-          addButton.textContent = 'Add to Library';
-          addButton.addEventListener('click', () => {
-            const newBook = new Book(
-              book.title,
-              book.author_name ? book.author_name[0] : 'Unknown Author',
-              '', // No description available from the API
-              'Want to read' // Set the default reading status
-            );
-            addBookToLibrary(newBook);
-          });
+    const author = document.createElement('p');
+    author.textContent = `By ${book.author_name ? book.author_name[0] : 'Unknown Author'}`;
 
-          bookElement.append(title, author, coverImage, addButton);
-          searchResults.appendChild(bookElement);
-        });
-      })
-      .catch(error => {
-        console.error('Error fetching books:', error);
-      });
-  }
+    const coverImage = document.createElement('img');
+    coverImage.src = book.isbn ? `https://covers.openlibrary.org/b/isbn/${book.isbn[0]}-M.jpg` : 'placeholder.jpg';
+    coverImage.alt = `${book.title || 'Unknown Title'} Cover`;
 
+    const addButton = document.createElement('button');
+    addButton.textContent = 'Add to Library';
+    addButton.addEventListener('click', () => {
+      const newBook = new Book(
+        book.title || 'Unknown Title',
+        book.author_name ? book.author_name[0] : 'Unknown Author',
+        '', // No description available from the API
+        'Want to read' // Set the default reading status
+      );
+      addBookToLibrary(newBook);
+    });
+
+    bookElement.append(title, author, coverImage, addButton);
+    searchResults.appendChild(bookElement);
+  });
+}
+
+function showErrorMessage(message) {
+  const searchResults = document.getElementById('search-results');
+  searchResults.innerHTML = `<p class="error-message">${message}</p>`;
+}
 const form = document.getElementById('add_book');
 const titleInput = document.querySelector('#titleInput');
 const authorInput = document.querySelector('#authorInput');
