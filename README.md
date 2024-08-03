@@ -52,6 +52,28 @@ To run the Better Book Tracker application locally, follow these steps:
 - `Javascript/Scripts.JS`: The JavaScript file that contains the application logic and functionality.
 - `images/`: A directory containing the images used in the application.
 
+## Project Organization
+
+The Better-Book-Tracker project is organized as follows:
+
+1. Book Search: Users can search for books using the Open Library API and add them directly to their library.
+
+2. Manual Book Addition: A form is provided for users to manually add books to their library with details such as title, author, description, and reading status.
+
+3. Library Display: The application displays the user's book library, showing all added books with their details and status. Each book entry includes options to edit or delete the book.
+
+*4. Library Search: Users can search within their own library using a dedicated search function.
+(Still in progress)*
+
+5. Book Status Chart: A visual representation of the user's reading progress is provided using a pie chart, categorizing books by their reading status.
+
+6. Data Persistence: The project uses local storage to save the user's library, ensuring that data persists between sessions.
+
+7. Responsive Design: The application is designed to be responsive, adapting to different screen sizes for optimal usability across devices.
+
+This organization creates a comprehensive book tracking experience, from adding books to visualizing reading progress, all within a user-friendly interface.
+
+
 ## Usage
 
 1. **Search for Books**: Enter a book title or author in the search input field and click the "Search for a book" button. The application will fetch book data from the Open Library API and display the search results.
