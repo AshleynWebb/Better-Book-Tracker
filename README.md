@@ -1,10 +1,12 @@
 # Better Book Tracker
+This is my capstone project for CODE:You.
 
 Welcome to Better Book Tracker, a web application designed to help bibliophiles keep track of their book collections and reading progress. This project is built using HTML, CSS, and JavaScript, and it leverages the Open Library API to search for and add books to your personal library.
 
 ## Features
 
 Features used in this project:
+
 1.Use arrays, objects, sets or maps to store and retrieve information that is displayed in your app.
 Arrays and objects are used to store and retrieve information about books in the myLibrary array.
 
