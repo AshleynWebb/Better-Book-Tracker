@@ -17,11 +17,17 @@ Features used in this project:
 5.Retrieve data from a third-party API and use it to display something within your app. The project uses the Open Library API to search for books and display the results. This is evident in the getBooks() function, which fetches data from the API and then renders the search results using the renderSearchResults() function.
 
 Book Search: Search for books using the Open Library API and add them to your library with a single click.
+
 Add Books Manually: If a book is not found in the Open Library API, you can manually add it to your library by providing the title, author, description, and reading status.
+
 Book Management: View, edit, and delete books from your library.
+
 Reading Status Tracking: Keep track of your reading progress by marking books as "Read," "Want to Read," or "Currently Reading."
+
 Local Storage: Your book library is stored locally in your browser, so your data persists even after closing the application.
+
 Book Status Chart: A visual representation of your reading progress using a bar chart.
+
 Technologies Used
 HTML5
 CSS3
@@ -47,7 +53,7 @@ Manual Book Addition: A form is provided for users to manually add books to thei
 
 Library Display: The application displays the user's book library, showing all added books with their details and status. Each book entry includes options to edit or delete the book.
 
-4. Library Search: Users can search within their own library using a dedicated search function. (Still in progress)
+4. Library Search: Users can search within their own library using a dedicated search function.
 
 Book Status Chart: A visual representation of the user's reading progress is provided using a pie chart, categorizing books by their reading status.
 
