@@ -81,7 +81,7 @@ This organization creates a comprehensive book tracking experience, from adding 
 3. **Add Books Manually**: If a book is not found in the Open Library API, you can manually add it to your library by filling out the "Add a book" form and clicking the "Add Book selection" button.
 4. **Manage Books**: In your library, you can edit a book's details by clicking the "Edit" button, or delete a book by clicking the "Delete" button.
 5. **Track Reading Status**: Each book in your library has a reading status indicator ("Read," "Want to Read," or "Currently Reading"). You can change a book's status by editing its details.
-6. **View Book Status Chart**: A bar chart at the bottom of the page displays the distribution of books across the different reading statuses.
+6. **View Book Status Chart**: A Pie chart at the bottom of the page displays the distribution of books across the different reading statuses.
 
 ## Contributing
 
