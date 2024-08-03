@@ -3,7 +3,7 @@ body{
     background-color: #222629;
     color:  #86c232;
 
- /* background-image: url('../images/821674277.jpg'); */
+ background-image: url('../images/821674277.jpg'); 
 
     background-size: cover;
     background-position: center;
@@ -151,6 +151,33 @@ form button {
     cursor: pointer;
 }
 
+    #library-search {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#library-search-input {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    width: 300px;
+}
+
+#library-search-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #86c232;
+    color: white;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+#library-search-button:hover {
+    background-color: #61892f;
+}
 
 
 #book-list {

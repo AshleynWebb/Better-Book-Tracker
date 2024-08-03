@@ -1,5 +1,4 @@
 function getBooks() {
-  console.log('getBooks function called');
   const limit = 10;
   const searchResults = document.getElementById('search-results');
   searchResults.innerHTML = '';
@@ -49,8 +48,8 @@ function renderSearchResults(books) {
       const newBook = new Book(
         book.title || 'Unknown Title',
         book.author_name ? book.author_name[0] : 'Unknown Author',
-        '', // No description available from the API
-        'Want to read' // Set the default reading status
+        '',
+        'Want to read' 
       );
       addBookToLibrary(newBook);
     });
@@ -64,6 +63,7 @@ function showErrorMessage(message) {
   const searchResults = document.getElementById('search-results');
   searchResults.innerHTML = `<p class="error-message">${message}</p>`;
 }
+
 const form = document.getElementById('add_book');
 const titleInput = document.querySelector('#titleInput');
 const authorInput = document.querySelector('#authorInput');
@@ -162,7 +162,6 @@ function displayBooks() {
         bookList.appendChild(bookDiv);
     });
     generateBookStatusChart();
-
 }
 
 form.addEventListener('submit', (e) => {
@@ -176,7 +175,7 @@ if (localStorage.getItem('myLibrary')) {
     myLibrary = JSON.parse(localStorage.getItem('myLibrary'));
     displayBooks();
 }
-
+let bookStatusChart = null;
 
 function generateBookStatusChart() {
   const readCount = myLibrary.filter(book => book.readingStatus === 'Read').length;
@@ -184,6 +183,63 @@ function generateBookStatusChart() {
   const currentlyReadingCount = myLibrary.filter(book => book.readingStatus === 'Currently reading').length;
 
   const ctx = document.getElementById('bookStatusChart').getContext('2d');
+ 
+ function generateBookStatusChart() {
+
+}
+
+function searchLibrary(query) {
+  console.log("Searching library for:", query);
+  const results = myLibrary.filter(book => 
+      book.title.toLowerCase().includes(query.toLowerCase()) ||
+      book.author.toLowerCase().includes(query.toLowerCase()) ||
+      book.description.toLowerCase().includes(query.toLowerCase())
+  );
+  return results;
+}
+
+
+function displayBooks(books = myLibrary) {
+  bookList.innerHTML = '';
+  books.forEach((book, index) => {
+      const bookDiv = document.createElement('div');
+      bookDiv.classList.add('book');
+
+      const title = document.createElement('h3');
+      title.textContent = book.title;
+
+      const author = document.createElement('p');
+      author.textContent = `By ${book.author}`;
+
+      const description = document.createElement('p');
+      description.textContent = book.description;
+      description.classList.add('description');
+
+      const status = document.createElement('p');
+      status.classList.add('status');
+      status.textContent = book.readingStatus;
+
+      bookDiv.append(title, author, description, status);
+      bookList.appendChild(bookDiv);
+  });
+
+  generateBookStatusChart();
+}
+
+document.getElementById('library-search-button').addEventListener('click', () => {
+    const query = document.getElementById('library-search-input').value;
+    const filteredBooks = searchLibrary(query);
+    displayBooks(filteredBooks);
+});
+
+document.getElementById('library-search-input').addEventListener('input', () => {
+    const query = document.getElementById('library-search-input').value;
+    if (query === '') {
+        displayBooks(); 
+    }
+});
+
+
   const chart = new Chart(ctx, {
     type: 'pie',
     data: {
@@ -206,3 +262,4 @@ function generateBookStatusChart() {
     }
   });
 }
+
