@@ -47,7 +47,7 @@ Manual Book Addition: A form is provided for users to manually add books to thei
 
 Library Display: The application displays the user's book library, showing all added books with their details and status. Each book entry includes options to edit or delete the book.
 
-4. Library Search: Users can search within their own library using a dedicated search function. (Still in progress)
+4. Library Search: Users can search within their own library using a dedicated search function.
 
 Book Status Chart: A visual representation of the user's reading progress is provided using a pie chart, categorizing books by their reading status.
 
