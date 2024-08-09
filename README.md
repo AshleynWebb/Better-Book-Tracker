@@ -10,8 +10,7 @@ Welcome to Better Book Tracker, a web application designed to help bibliophiles 
 
 1. Use of arrays, objects, sets or maps to store and retrieve information about books.
 2. Data analysis of stored book information for display.
-3. Regular expression for user input validation.
-4. Text analysis and display of useful information.
+3. Text analysis and display of useful information.
 5. Third-party API data retrieval and display.
 
 ## Key Functionalities
@@ -33,8 +32,10 @@ Welcome to Better Book Tracker, a web application designed to help bibliophiles 
 
 ## Getting Started
 
-1. Clone the repository or download the source code.
-2. Open the index.html file in a web browser.
+1. Clone the repository to your local machine.
+2. Navigate to the project directory.
+3. Open the index.html file in a web browser.
+
 
 ## Project Structure
 
